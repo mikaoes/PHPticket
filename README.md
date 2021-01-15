@@ -1,4 +1,4 @@
-# RubyTicket - a Ruby, PHP and JSON based ticket-system, running on Linux
+# PHPticket - a PHP, Ruy, Bash and JSON based ticket-system, running on Linux
 
 This project is tested on RaspberryPi OS running PHP 7.3.19
 
