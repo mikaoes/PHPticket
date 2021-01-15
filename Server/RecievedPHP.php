@@ -1,12 +1,11 @@
 #!/usr/bin/php
 <?php
 // SETUP - Please set these variables
-$tmptxt = "/YOUR_PATH/tmp.txt"; // location of tmp.txt
+$tmptxt = "Server/tmp.txt"; // location of tmp.txt
 //
 $currentTicket = file_get_contents($tmptxt);
-//$currentTicket = str_replace("_", " ", $currentTicket);
-echo $currentTicket;
-echo "\n\n";
+// echo $currentTicket;
+// echo "\n\n";
 
 $lines = file($tmptxt);
 $new = '';
@@ -18,10 +17,13 @@ if (is_array($lines)) {
 }
 $new = str_replace("\n", "", $new);
 file_put_contents($tmptxt, $new);
-$dataarray = explode (" ", $new);
-print_r($dataarray);
+$dataarray = explode (" ", $new, 5);
+$datakeysarray = array("name", "date", "time", "title", "email");
+$dataarray = array_combine($datakeysarray, $dataarray);
 $jsonarray = json_encode($dataarray);
 file_put_contents("ticket.json", $jsonarray);
-
+// print_r($dataarray);
+// echo "\n\n";
+// print_r($datakeysarray);
 exit(0);
 ?>
