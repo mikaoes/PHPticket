@@ -17,9 +17,11 @@ if (is_array($lines)) {
 }
 $new = str_replace("\n", "", $new);
 file_put_contents($tmptxt, $new);
-$dataarray = explode (" ", $new, 5);
-$datakeysarray = array("name", "date", "time", "title", "email");
+$dataarray = explode (" ", $new, 6);
+$datakeysarray = array("name", "date", "time", "title", "email", "status");
 $dataarray = array_combine($datakeysarray, $dataarray);
+$replacearray = ["status" => "open"];
+$dataarray = array_replace($dataarray, $replacearray);
 $jsonarray = json_encode($dataarray);
 file_put_contents("ticket.json", $jsonarray);
 // print_r($dataarray);
