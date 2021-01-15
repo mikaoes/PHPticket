@@ -1,15 +1,10 @@
 #!/usr/bin/php
 <?php
-// SETUP - Please set these variables
 $tmptxt = "Server/tmp.txt"; // location of tmp.txt
-//
 $currentTicket = file_get_contents($tmptxt);
-// echo $currentTicket;
-// echo "\n\n";
 
 $lines = file($tmptxt);
 $new = '';
-
 if (is_array($lines)) {
     foreach($lines as $line) {
         $new .= $line . " ";
@@ -23,9 +18,11 @@ $dataarray = array_combine($datakeysarray, $dataarray);
 $replacearray = ["status" => "open"];
 $dataarray = array_replace($dataarray, $replacearray);
 $jsonarray = json_encode($dataarray);
-file_put_contents("ticket.json", $jsonarray);
-// print_r($dataarray);
-// echo "\n\n";
-// print_r($datakeysarray);
+$namingint = file_get_contents("Server/namingint");
+$filename = "activeTickets/" . $namingint . ".json";
+file_put_contents($filename, $jsonarray);
+file_put_contents($tmptxt, "");
+$namingint = (int)$namingint + 1;
+file_put_contents("Server/namingint", $namingint);
 exit(0);
 ?>
