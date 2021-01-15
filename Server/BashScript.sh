@@ -1,3 +1,4 @@
+#!/bin/bash
 # This script must be executed in the main directory of the repository
 
 printf "recieved new ticket";
