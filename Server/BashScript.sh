@@ -10,7 +10,6 @@ echo $date >> Server/tmp.txt
 echo $time >> Server/tmp.txt
 echo $2 >> Server/tmp.txt
 echo $3 >> Server/tmp.txt
-echo $4 >> Server/tmp.txt
 echo "open" >> Server/tmp.txt
 
 php Server/RecievedPHP.php
