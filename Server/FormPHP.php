@@ -1,4 +1,5 @@
 <?php
 echo $_POST['username'] . " ";
-echo $_REQUEST['username'];
+echo ucwords(str_replace(" ", "", $_POST['topic'])) . " ";
+echo $_POST['email'];
 ?>
